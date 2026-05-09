@@ -1,0 +1,251 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    height:100vh;
+    overflow:hidden;
+    background:#050816;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    color:white;
+}
+
+/* Animated Background */
+
+body::before{
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+        radial-gradient(circle at top left,#00f7ff44,transparent 20%),
+        radial-gradient(circle at bottom right,#8f00ff55,transparent 25%),
+        radial-gradient(circle at center,#ffffff11,transparent 15%);
+    animation:bgMove 15s linear infinite;
+}
+
+@keyframes bgMove{
+    0%{
+        transform:translate(0,0) rotate(0deg);
+    }
+    50%{
+        transform:translate(-5%,-5%) rotate(180deg);
+    }
+    100%{
+        transform:translate(0,0) rotate(360deg);
+    }
+}
+
+/* Floating Glow Balls */
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    animation:float 10s ease-in-out infinite;
+}
+
+.glow1{
+    width:300px;
+    height:300px;
+    background:#00f7ff55;
+    top:-50px;
+    left:-80px;
+}
+
+.glow2{
+    width:350px;
+    height:350px;
+    background:#8f00ff55;
+    bottom:-100px;
+    right:-100px;
+    animation-delay:3s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-40px);
+    }
+}
+
+/* Main Glass Card */
+
+.container{
+    position:relative;
+    z-index:10;
+    width:900px;
+    padding:60px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:
+        0 0 50px rgba(0,247,255,0.15),
+        0 0 100px rgba(143,0,255,0.12);
+    overflow:hidden;
+    animation:fadeUp 1.2s ease;
+}
+
+.container::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        130deg,
+        transparent,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+    transform:translateX(-100%);
+    animation:shine 6s infinite;
+}
+
+@keyframes shine{
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Text */
+
+.small-text{
+    color:#00f7ff;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+h1{
+    font-size:72px;
+    line-height:1.1;
+    font-weight:700;
+    margin-bottom:20px;
+    background:linear-gradient(to right,#ffffff,#00f7ff,#8f00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:textGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow{
+    from{
+        filter:drop-shadow(0 0 5px #00f7ff);
+    }
+    to{
+        filter:drop-shadow(0 0 20px #8f00ff);
+    }
+}
+
+.description{
+    font-size:18px;
+    color:#d7d7d7;
+    line-height:1.8;
+    max-width:700px;
+}
+
+/* Buttons */
+
+.buttons{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    position:relative;
+    padding:15px 35px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    overflow:hidden;
+    transition:0.4s ease;
+}
+
+.primary{
+    background:linear-gradient(135deg,#00f7ff,#8f00ff);
+    color:white;
+    box-shadow:0 0 20px rgba(0,247,255,0.5);
+}
+
+.primary:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 0 35px rgba(143,0,255,0.8);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+    backdrop-filter:blur(10px);
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,0.08);
+    transform:translateY(-5px);
+}
+
+/* Floating Particles */
+
+.particle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    opacity:0.5;
+    animation:particles 12s linear infinite;
+}
+
+.particle:nth-child(1){
+    top:90%;
+    left:10%;
+    animation-duration:10s;
+}
+
+.particle:nth-child(2){
+    top:80%;
+    left:70%;
+    animation-duration:14s;
+}
+
+.particle:nth-child(3){
+    top:95%;
+    left:40%;
+    animation-duration:11s;
+}
+
+.particle:nth-child(4){
+    top:85%;
+    left:90%;
+    animation-duration:16s;
+}
+
+@keyframes particles{
+    from{
+        transform:translateY(0) scale(1);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-1200px) scale(2);
+        opacity:1;
+    }
+}
