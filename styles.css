@@ -203,6 +203,18 @@ h1{
     transform:translateY(-5px);
 }
 
+
+.tertiary{
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+    backdrop-filter:blur(10px);
+}
+
+.tertiary:hover{
+    background:rgba(255,255,255,0.08);
+    transform:translateY(-5px);
+}
+
 /* Floating Particles */
 
 .particle{
