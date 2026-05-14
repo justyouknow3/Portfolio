@@ -181,14 +181,24 @@ section p{
 
 .Certificates{
     margin-top:20px;
-    display:flex;
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:20px;
 }
 
+/* Make the title full width */
+
 .Certificates h3{
+    grid-column:1 / -1;
     font-size:28px;
     color:#00f7ff;
+}
+@media(max-width:768px){
+
+    .Certificates{
+        grid-template-columns:1fr;
+    }
+
 }
 
 /* CERTIFICATE CARD */
